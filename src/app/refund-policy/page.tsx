@@ -1,0 +1,3 @@
+import { ContentPage } from "@/components/site";
+export const metadata = { title: "Refund policy" };
+export default function Page() { return <ContentPage label="Refund policy" title="No online payments are active." copy="This site does not currently collect donations, so there are no online transactions or refunds to process."><section className="section legal-copy"><div className="container"><h2>Before donations begin</h2><p>A complete refund and cancellation policy, including verified contact and timelines, will be published before an online payment facility is enabled.</p></div></section></ContentPage>; }

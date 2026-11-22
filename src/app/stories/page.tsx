@@ -1,0 +1,3 @@
+import { ContentPage, EmptyState } from "@/components/site";
+export const metadata = { title: "Stories" };
+export default function Page() { return <ContentPage label="Stories" title="Every story deserves care." copy="We want to share community experiences in people’s own words, with their informed permission and respect for their privacy."><section className="section"><div className="container"><EmptyState title="We don’t have a verified community story to share yet." copy="As our work develops, we will publish stories only when contributors have agreed and the details have been checked. We will never present an imagined story as a real person’s experience." /></div></section></ContentPage>; }

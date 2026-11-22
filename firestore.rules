@@ -1,0 +1,21 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function hasRole(roles) {
+      return signedIn() && request.auth.token.roles is list && request.auth.token.roles.hasAny(roles);
+    }
+    match /projects/{id} { allow read: if resource.data.published == true; allow write: if hasRole(['SUPER_ADMIN', 'ADMIN', 'PROJECT_MANAGER']); }
+    match /stories/{id} { allow read: if resource.data.published == true; allow write: if hasRole(['SUPER_ADMIN', 'ADMIN', 'CONTENT_MANAGER']); }
+    match /programs/{id} { allow read: if resource.data.published == true; allow write: if hasRole(['SUPER_ADMIN', 'ADMIN', 'PROJECT_MANAGER']); }
+    match /users/{id} { allow read: if signedIn() && request.auth.uid == id; allow write: if hasRole(['SUPER_ADMIN']); }
+    match /donations/{id} { allow read, write: if hasRole(['SUPER_ADMIN', 'ADMIN', 'FINANCE_MANAGER']); }
+    match /donors/{id} { allow read, write: if hasRole(['SUPER_ADMIN', 'ADMIN', 'FINANCE_MANAGER']); }
+    match /beneficiaries/{id} { allow read, write: if hasRole(['SUPER_ADMIN', 'ADMIN', 'PROJECT_MANAGER']); }
+    match /expenses/{id} { allow read, write: if hasRole(['SUPER_ADMIN', 'ADMIN', 'FINANCE_MANAGER']); }
+    match /financial_reports/{id} { allow read, write: if hasRole(['SUPER_ADMIN', 'ADMIN', 'FINANCE_MANAGER']); }
+    match /audit_logs/{id} { allow read: if hasRole(['SUPER_ADMIN', 'ADMIN']); allow write: if false; }
+    match /contact_messages/{id} { allow read, write: if hasRole(['SUPER_ADMIN', 'ADMIN', 'STAFF']); }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

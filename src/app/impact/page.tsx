@@ -1,0 +1,3 @@
+import { ContentPage, EmptyState } from "@/components/site";
+export const metadata = { title: "Impact" };
+export default function Page() { return <ContentPage label="Impact" title="We’ll measure what we do, and share what we learn." copy="A number matters only when people can understand where it came from. We are building a responsible way to track and report our work."><section className="section"><div className="container"><EmptyState title="There are no verified program results to report yet." copy="We’ll add dated updates and supporting information as programs begin. Until then, we won’t publish estimates as achievements." /></div></section></ContentPage>; }
