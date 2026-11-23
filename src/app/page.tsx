@@ -43,8 +43,8 @@ const initiatives = [
 	},
 	{
 		tag: "Winter Relief",
-		title: "Annual Blanket Distribution",
-		desc: "Conducting annual distribution drives of thick blankets and warm clothes for the homeless, elderly, and vulnerable families.",
+		title: "Annual Blanket & Sweater Distribution",
+		desc: "Conducting annual distribution drives of 2,500+ thick blankets, sweaters, and warm clothes for the homeless, elderly, and vulnerable families.",
 		image: "/images/kambal 1.jpeg",
 		icon: "❄️",
 	},
@@ -131,7 +131,7 @@ export default function Home() {
 			<section className="ref-stats-wrap">
 				<div className="ref-stats">
 					{[
-						["❄️", "2,500+", "Blankets Distributed"],
+						["❄️", "5,000+", "Blankets & Sweaters Distributed"],
 						["🍲", "100K+", "Meals Served"],
 						["📚", "2,000+", "Children Educated"],
 						["🩺", "1,000+", "Medical Relief"],
